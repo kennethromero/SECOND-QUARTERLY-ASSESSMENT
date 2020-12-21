@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Net;
+
 namespace SECOND_QUARTERLY_ASSESSMENT
 {
     /// <summary>
@@ -23,6 +25,21 @@ namespace SECOND_QUARTERLY_ASSESSMENT
         public MainWindow()
         {
             InitializeComponent();
+            var url = "http://newsapi.org/v2/top-headlines?country=ru&category=business&apiKey=API_KEY" +
+             "country = ru&" +
+             "category = business" +
+             "apiKey= 42a9d08a5a02488491bb873c92a613d3";
+
+            var json = new WebClient().DownloadString(url);
+
+            Console.WriteLine(json);
+
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
